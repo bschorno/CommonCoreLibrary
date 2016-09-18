@@ -39,6 +39,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Network\INet.cs" />
+    <Compile Include="Network\Net.cs" />
+    <Compile Include="Network\NetBuffer.cs" />
+    <Compile Include="Network\NetChunk.cs" />
+    <Compile Include="Network\NetChunkCollector.cs" />
+    <Compile Include="Network\NetClient.cs" />
+    <Compile Include="Network\NetException.cs" />
+    <Compile Include="Network\NetInfoEventArgs.cs" />
+    <Compile Include="Network\NetInfoLog.cs" />
+    <Compile Include="Network\NetInfoType.cs" />
+    <Compile Include="Network\NetMessage.cs" />
+    <Compile Include="Network\NetMessageConnection.cs" />
+    <Compile Include="Network\NetMessageConnectionCallback.cs" />
+    <Compile Include="Network\NetMessageData.cs" />
+    <Compile Include="Network\NetMessageDisconnection.cs" />
+    <Compile Include="Network\NetMessageInfo.cs" />
+    <Compile Include="Network\NetMessageType.cs" />
+    <Compile Include="Network\NetQueue.cs" />
+    <Compile Include="Network\NetServer.cs" />
+    <Compile Include="Network\NetStream.cs" />
+    <Compile Include="Network\NetStreamIn.cs" />
+    <Compile Include="Network\NetStreamOut.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serialisation\ISrlSerializable.cs" />
     <Compile Include="Serialisation\SrlByte.cs" />
