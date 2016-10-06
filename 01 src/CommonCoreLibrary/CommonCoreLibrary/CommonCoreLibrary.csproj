@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithm\Levenshtein.cs" />
     <Compile Include="Network\INet.cs" />
     <Compile Include="Network\Net.cs" />
     <Compile Include="Network\NetBuffer.cs" />
