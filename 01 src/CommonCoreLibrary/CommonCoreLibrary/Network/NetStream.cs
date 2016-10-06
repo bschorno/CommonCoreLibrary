@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace CommonCoreLibrary
+namespace CommonCoreLibrary.Network
 {
     public abstract class NetStream
     {

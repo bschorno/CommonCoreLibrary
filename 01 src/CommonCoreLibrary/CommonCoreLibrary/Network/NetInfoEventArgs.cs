@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CommonCoreLibrary
+namespace CommonCoreLibrary.Network
 {
     public delegate void NetInfoEvent(object sender, NetInfoEventArgs e);
 

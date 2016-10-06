@@ -5,7 +5,7 @@ using System.Text;
 using System.Net;
 using System.Net.Sockets;
 
-namespace CommonCoreLibrary
+namespace CommonCoreLibrary.Network
 {
     public static class Net
     {

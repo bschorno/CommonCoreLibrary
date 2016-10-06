@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Security;
 
-namespace CommonCoreLibrary
+namespace CommonCoreLibrary.Network
 {
     public class NetServer : INet
     {
