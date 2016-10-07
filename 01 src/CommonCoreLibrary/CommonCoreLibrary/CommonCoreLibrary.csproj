@@ -43,6 +43,7 @@
     <Compile Include="Algorithm\AStarNode.cs" />
     <Compile Include="Algorithm\AStarNodeComparer.cs" />
     <Compile Include="Algorithm\AStarPath.cs" />
+    <Compile Include="Algorithm\AStarPriorityQueue.cs" />
     <Compile Include="Algorithm\Levenshtein.cs" />
     <Compile Include="Network\INet.cs" />
     <Compile Include="Network\Net.cs" />
@@ -66,7 +67,6 @@
     <Compile Include="Network\NetStream.cs" />
     <Compile Include="Network\NetStreamIn.cs" />
     <Compile Include="Network\NetStreamOut.cs" />
-    <Compile Include="PrioriyQueueBH.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serialisation\ISrlSerializable.cs" />
     <Compile Include="Serialisation\SrlByte.cs" />

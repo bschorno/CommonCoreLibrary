@@ -3,16 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CommonCoreLibrary
+namespace CommonCoreLibrary.Algorithm
 {
-    /// <summary>
-    /// Priority Queue Binary Heap
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public class PrioriyQueueBH<T>
+    public class AStarPriorityQueue<T>
     {
-        protected List<T>       _innerList = new List<T>();
-        protected IComparer<T>  _comparer;
+        protected List<T> _innerList = new List<T>();
+        protected IComparer<T> _comparer;
 
         /// <summary>
         /// Capacity of list
@@ -55,7 +51,7 @@ namespace CommonCoreLibrary
         /// <summary>
         /// Constructor
         /// </summary>
-        public PrioriyQueueBH()
+        public AStarPriorityQueue()
         {
             this._comparer = Comparer<T>.Default;
         }
@@ -64,7 +60,7 @@ namespace CommonCoreLibrary
         /// Constructor
         /// </summary>
         /// <param name="comparer">Comparer</param>
-        public PrioriyQueueBH(IComparer<T> comparer)
+        public AStarPriorityQueue(IComparer<T> comparer)
         {
             this._comparer = comparer;
         }
@@ -74,12 +70,12 @@ namespace CommonCoreLibrary
         /// </summary>
         /// <param name="comparer">Comparer</param>
         /// <param name="capacity">List capacity</param>
-        public PrioriyQueueBH(IComparer<T> comparer, int capacity)
+        public AStarPriorityQueue(IComparer<T> comparer, int capacity)
         {
             this._comparer = comparer;
             this._innerList.Capacity = capacity;
         }
-        
+
         /// <summary>
         /// Switch position of two elements
         /// </summary>
@@ -197,7 +193,7 @@ namespace CommonCoreLibrary
 
             if (var1 < i)
                 return;
-            
+
             while (true)
             {
                 var2 = var1;

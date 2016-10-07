@@ -7,9 +7,9 @@ namespace CommonCoreLibrary.Algorithm
 {
     public class AStarPath
     {
-        private PrioriyQueueBH<AStarNode> _openList = new PrioriyQueueBH<AStarNode>(new AStarNodeComparer());
-        private List<AStarNode>           _closeList = new List<AStarNode>();
-        private AStarGrid                 _grid;
+        private AStarPriorityQueue<AStarNode>   _openList = new AStarPriorityQueue<AStarNode>(new AStarNodeComparer());
+        private List<AStarNode>                 _closeList = new List<AStarNode>();
+        private AStarGrid                       _grid;
 
         /// <summary>
         /// Constructor
