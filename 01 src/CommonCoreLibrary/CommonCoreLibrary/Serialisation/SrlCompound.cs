@@ -79,16 +79,29 @@ namespace CommonCoreLibrary.Serialisation
             }
         }
 
+        /// <summary>
+        /// Returns an enumerator that iterates trought the List
+        /// </summary>
+        /// <returns>Enumerator</returns>
         public IEnumerator<SrlTag> GetEnumerator()
         {
             return this._value.GetEnumerator();
         }
 
+        /// <summary>
+        /// Returns an enumerator that iterates trought the List
+        /// </summary>
+        /// <returns>Enumerator</returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return this._value.GetEnumerator();
         }
 
+        /// <summary>
+        /// Search for element and return index
+        /// </summary>
+        /// <param name="tag">Element</param>
+        /// <returns>Index</returns>
         public int IndexOf(SrlTag tag)
         {
             if (tag == null)
@@ -96,6 +109,11 @@ namespace CommonCoreLibrary.Serialisation
             return this._value.IndexOf(tag);
         }
 
+        /// <summary>
+        /// Insert tag at specifig index
+        /// </summary>
+        /// <param name="index">Index</param>
+        /// <param name="tag">Tag</param>
         public void Insert(int index, SrlTag tag)
         {
             if (tag == null)
@@ -106,11 +124,19 @@ namespace CommonCoreLibrary.Serialisation
             this._value.Insert(index, tag);
         }
 
+        /// <summary>
+        /// Remove tag at specifig index
+        /// </summary>
+        /// <param name="index">Index</param>
         public void RemoveAt(int index)
         {
             this._value.RemoveAt(index);
         }
 
+        /// <summary>
+        /// Add tag to list at last position
+        /// </summary>
+        /// <param name="tag">Tag</param>
         public void Add(SrlTag tag)
         {
             if (tag == null)
@@ -121,11 +147,19 @@ namespace CommonCoreLibrary.Serialisation
             this._value.Add(tag);
         }
 
+        /// <summary>
+        /// Remove all elements from list
+        /// </summary>
         public void Clear()
         {
             this._value.Clear();
         }
 
+        /// <summary>
+        /// Check if list contains tag
+        /// </summary>
+        /// <param name="tag">Tag</param>
+        /// <returns></returns>
         public bool Contains(SrlTag tag)
         {
             if (tag == null)
@@ -133,11 +167,21 @@ namespace CommonCoreLibrary.Serialisation
             return this._value.Contains(tag);
         }
 
+        /// <summary>
+        /// Copy the entire list to an one dimensional array
+        /// </summary>
+        /// <param name="tag">Array of tag</param>
+        /// <param name="arrayIndex">Starting index from target array</param>
         public void CopyTo(SrlTag[] tag, int arrayIndex)
         {
             this._value.CopyTo(tag, arrayIndex);
         }
 
+        /// <summary>
+        /// Remove tag from list
+        /// </summary>
+        /// <param name="tag">Tag</param>
+        /// <returns></returns>
         public bool Remove(SrlTag tag)
         {
             if (tag == null)
@@ -145,6 +189,9 @@ namespace CommonCoreLibrary.Serialisation
             return this._value.Remove(tag);
         }
 
+        /// <summary>
+        /// Get numbers of element containing in this list
+        /// </summary>
         public int Count
         {
             get
@@ -153,6 +200,9 @@ namespace CommonCoreLibrary.Serialisation
             }
         }
 
+        /// <summary>
+        /// Is readonly
+        /// </summary>
         bool ICollection<SrlTag>.IsReadOnly
         {
             get
@@ -161,11 +211,18 @@ namespace CommonCoreLibrary.Serialisation
             }
         }
 
+        /// <summary>
+        /// Remove object from this list
+        /// </summary>
+        /// <param name="value">Object</param>
         void IList.Remove(object value)
         {
             this.Remove((SrlTag)value);
         }
 
+        /// <summary>
+        /// Get object at index
+        /// </summary>
         object IList.this[int index]
         {
             set
@@ -178,27 +235,50 @@ namespace CommonCoreLibrary.Serialisation
             }
         }
 
+        /// <summary>
+        /// Add object to list
+        /// </summary>
+        /// <param name="value">Object</param>
+        /// <returns>Insered index</returns>
         int IList.Add(object value)
         {
             this.Add((SrlTag)value);
             return (this._value.Count - 1);
         }
-
+        
+        /// <summary>
+        /// Check if object is contained in list
+        /// </summary>
+        /// <param name="value">Object to search for</param>
+        /// <returns></returns>
         bool IList.Contains(object value)
         {
             return this.Contains((SrlTag)value);
         }
 
+        /// <summary>
+        /// Get index of an object
+        /// </summary>
+        /// <param name="value">Object</param>
+        /// <returns>Index</returns>
         int IList.IndexOf(object value)
         {
             return this.IndexOf((SrlTag)value);
         }
 
+        /// <summary>
+        /// Insert object at specifig index
+        /// </summary>
+        /// <param name="index">Index</param>
+        /// <param name="value">Object</param>
         void IList.Insert(int index, object value)
         {
             this.Insert(index, (SrlTag)value);
         }
 
+        /// <summary>
+        /// Has list an fixed size
+        /// </summary>
         bool IList.IsFixedSize
         {
             get
@@ -207,6 +287,9 @@ namespace CommonCoreLibrary.Serialisation
             }
         }
 
+        /// <summary>
+        /// Is list readonly
+        /// </summary>
         bool IList.IsReadOnly
         {
             get
@@ -215,16 +298,28 @@ namespace CommonCoreLibrary.Serialisation
             }
         }
 
+        /// <summary>
+        /// Remove object at specifig index
+        /// </summary>
+        /// <param name="index">Index</param>
         void IList.RemoveAt(int index)
         {
             this.RemoveAt(index);
         }
 
+        /// <summary>
+        /// Copy entire list into an one dimensional array
+        /// </summary>
+        /// <param name="array">Target array</param>
+        /// <param name="index">Start index in target array</param>
         void ICollection.CopyTo(Array array, int index)
         {
             this.CopyTo((SrlTag[])array, index);
         }
 
+        /// <summary>
+        /// Get count of objects containing in this list
+        /// </summary>
         int ICollection.Count
         {
             get
@@ -233,6 +328,9 @@ namespace CommonCoreLibrary.Serialisation
             }
         }
 
+        /// <summary>
+        /// Is list synchronized
+        /// </summary>
         bool ICollection.IsSynchronized
         {
             get
@@ -241,6 +339,9 @@ namespace CommonCoreLibrary.Serialisation
             }
         }
 
+        /// <summary>
+        /// Syncronize root
+        /// </summary>
         object ICollection.SyncRoot
         {
             get
