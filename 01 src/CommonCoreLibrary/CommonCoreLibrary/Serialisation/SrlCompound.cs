@@ -392,6 +392,15 @@ namespace CommonCoreLibrary.Serialisation
         }
 
         /// <summary>
+        /// Get boolean-tag
+        /// </summary>
+        /// <returns>Tag</returns>
+        public SrlBoolean GetBoolean()
+        {
+            return this.GetTag() as SrlBoolean ?? new SrlBoolean();
+        }
+
+        /// <summary>
         /// Get byte-tag
         /// </summary>
         /// <returns>Tag</returns>
@@ -443,6 +452,15 @@ namespace CommonCoreLibrary.Serialisation
         public SrlDouble GetDouble()
         {
             return this.GetTag() as SrlDouble ?? new SrlDouble();
+        }
+
+        /// <summary>
+        /// Get char-tag
+        /// </summary>
+        /// <returns>Tag</returns>
+        public SrlChar GetChar()
+        {
+            return this.GetTag() as SrlChar ?? new SrlChar();
         }
 
         /// <summary>

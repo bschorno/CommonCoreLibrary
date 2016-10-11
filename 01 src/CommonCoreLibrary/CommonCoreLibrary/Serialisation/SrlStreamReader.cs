@@ -40,7 +40,7 @@ namespace CommonCoreLibrary.Serialisation
 
             if (count > this._bitBufferCount)
             {
-                var2.Length = count + this._bitBufferCount + (count % 8);
+                var2.Length = count + this._bitBufferCount + (8 - (count % 8 == 0 ? 8 : count % 8));
 
                 int var3 = count >> 3;
                 if (var3 == 0)
@@ -100,5 +100,17 @@ namespace CommonCoreLibrary.Serialisation
         {
             return (SrlType)this.ReadBitArray(4).ToByteArray()[0];
         }        
+
+        /// <summary>
+        /// Read bits from stream
+        /// </summary>
+        /// <param name="count">Number of bits to read</param>
+        /// <returns></returns>
+        internal bool[] ReadBit(int count)
+        {
+            bool[] var1 = new bool[count];
+            this.ReadBitArray(count).CopyTo(var1, 0);
+            return var1;
+        }
     }
 }

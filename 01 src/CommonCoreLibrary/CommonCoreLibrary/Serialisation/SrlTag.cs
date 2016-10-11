@@ -59,6 +59,12 @@ namespace CommonCoreLibrary.Serialisation
                     return new SrlList();
                 case SrlType.Compound:
                     return new SrlCompound();
+                case SrlType.Boolean:
+                    return new SrlBoolean();
+                case SrlType.Char:
+                    return new SrlChar();
+                case SrlType.Object:
+                    return new SrlObject();
                 case SrlType.End:
                     throw new SrlException("Invalid SrlType!");
                 default:

@@ -85,5 +85,15 @@ namespace CommonCoreLibrary.Serialisation
             BitArray var1 = new BitArray(new byte[] { (byte)type });
             this.WriteBitArray(var1, 4);
         }
+
+        /// <summary>
+        /// Write bits to stream
+        /// </summary>
+        /// <param name="bits">Bits array (boolean)</param>
+        internal void WriteBit(bool[] bits)
+        {
+            BitArray var1 = new BitArray(bits);
+            this.WriteBitArray(var1, bits.Length);
+        }
     }
 }

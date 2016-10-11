@@ -58,8 +58,23 @@ namespace CommonCoreLibrary.Serialisation
         Compound    = 0x09,
 
         /// <summary>
+        /// Object : unlimited
+        /// </summary>
+        Object      = 0x0A,
+
+        /// <summary>
+        /// Boolean : 1bit
+        /// </summary>
+        Boolean     = 0x0B,
+
+        /// <summary>
+        /// Char : 16bit
+        /// </summary>
+        Char        = 0x0C,
+
+        /// <summary>
         /// End
         /// </summary>
-        End         = 0x10    
+        End         = 0xFF   
     }
 }
