@@ -39,8 +39,6 @@ namespace CommonCoreLibrary.Serialisation
         {
             switch (type)
             {
-                case SrlType.Undefine:
-                    throw new SrlException("SrlType can't be undefine!");
                 case SrlType.Byte:
                     return new SrlByte();
                 case SrlType.Int16:
@@ -65,8 +63,12 @@ namespace CommonCoreLibrary.Serialisation
                     return new SrlChar();
                 case SrlType.Object:
                     return new SrlObject();
-                case SrlType.End:
-                    throw new SrlException("Invalid SrlType!");
+                case SrlType.UInt16:
+                    return new SrlUShort();
+                case SrlType.UInt32:
+                    return new SrlUInt();
+                case SrlType.UInt64:
+                    return new SrlULong();
                 default:
                     throw new SrlException("Invalid SrlType!");
             }

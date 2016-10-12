@@ -89,6 +89,9 @@
     <Compile Include="Serialisation\SrlString.cs" />
     <Compile Include="Serialisation\SrlTag.cs" />
     <Compile Include="Serialisation\SrlType.cs" />
+    <Compile Include="Serialisation\SrlUInt.cs" />
+    <Compile Include="Serialisation\SrlULong.cs" />
+    <Compile Include="Serialisation\SrlUShort.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

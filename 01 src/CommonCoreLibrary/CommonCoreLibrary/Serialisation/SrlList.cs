@@ -41,8 +41,7 @@ namespace CommonCoreLibrary.Serialisation
                                                              value,
                                                              var1), this);
                 }
-                if (value == SrlType.End ||
-                    value == SrlType.Undefine)
+                if (value == SrlType.Undefine)
                     throw new SrlException(string.Format("Invalid SrlType '{0}'",
                                                          value), this);
                 this._listType = value;
@@ -65,8 +64,7 @@ namespace CommonCoreLibrary.Serialisation
         public SrlList(SrlType type)
             : this()
         {
-            if (type == SrlType.End ||
-                type == SrlType.Undefine)
+            if (type == SrlType.Undefine)
                 throw new SrlException(string.Format("Invalid SrlType '{0}'",
                                                      type), this);
             this._listType = type;

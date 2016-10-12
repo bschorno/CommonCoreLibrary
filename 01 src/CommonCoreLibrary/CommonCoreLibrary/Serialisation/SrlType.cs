@@ -10,8 +10,8 @@ namespace CommonCoreLibrary.Serialisation
         /// <summary>
         /// Undefine Tag
         /// </summary>
-        Undefine    = 0x00,
-        
+        Undefine = 0x00,
+
         /// <summary>
         /// Byte : 8bit
         /// </summary>
@@ -63,18 +63,28 @@ namespace CommonCoreLibrary.Serialisation
         Object      = 0x0A,
 
         /// <summary>
-        /// Boolean : 1bit
-        /// </summary>
-        Boolean     = 0x0B,
-
-        /// <summary>
         /// Char : 16bit
         /// </summary>
-        Char        = 0x0C,
+        Char        = 0x0B,
+        
+        /// <summary>
+        /// UShort : 16bit
+        /// </summary>
+        UInt16      = 0x0C,
+        
+        /// <summary>
+        /// UInt : 32bit
+        /// </summary>
+        UInt32      = 0x0D,
+        
+        /// <summary>
+        /// ULong : 64bit
+        /// </summary>
+        UInt64      = 0x0E,
 
         /// <summary>
-        /// End
+        /// Boolean : 1bit
         /// </summary>
-        End         = 0xFF   
+        Boolean     = 0x0F,
     }
 }
