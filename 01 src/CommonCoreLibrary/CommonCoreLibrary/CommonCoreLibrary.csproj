@@ -39,6 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithm\Noise\Noise.cs" />
+    <Compile Include="Algorithm\Noise\PerlinNoise.cs" />
+    <Compile Include="Algorithm\Noise\SimplexNoise.cs" />
     <Compile Include="Algorithm\Path\AStarGrid.cs" />
     <Compile Include="Algorithm\Path\AStarNode.cs" />
     <Compile Include="Algorithm\Path\AStarNodeComparer.cs" />
@@ -93,9 +96,7 @@
     <Compile Include="Serialisation\SrlULong.cs" />
     <Compile Include="Serialisation\SrlUShort.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Algorithm\Noise\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
