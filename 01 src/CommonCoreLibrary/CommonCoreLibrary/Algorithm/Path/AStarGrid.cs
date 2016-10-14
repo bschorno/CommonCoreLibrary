@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CommonCoreLibrary.Algorithm
+namespace CommonCoreLibrary.Algorithm.Path
 {
     public class AStarGrid
     {
