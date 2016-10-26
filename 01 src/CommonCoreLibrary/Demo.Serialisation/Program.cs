@@ -2,16 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Reflection;
 using System.Threading.Tasks;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
-
-using CommonCoreLibrary.Algorithm;
 using CommonCoreLibrary.Serialisation;
 
-namespace Demo
+namespace Demo.Serialisation
 {
     class Program
     {
@@ -81,7 +75,7 @@ namespace Demo
 
         public Test()
         {
-            
+
         }
     }
 }

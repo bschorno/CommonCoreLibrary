@@ -9,7 +9,7 @@ namespace CommonCoreLibrary.Algorithm.Noise
     {
         protected int       _seed        = 1;
         protected int       _octaves     = 1;
-        protected int       _persistence = 1;
+        protected float     _persistence = 1;
         protected float     _scale       = 1f;
         protected Random    _random;
         protected byte[]    _permutation;
@@ -76,7 +76,7 @@ namespace CommonCoreLibrary.Algorithm.Noise
         /// <summary>
         /// Persistence
         /// </summary>
-        public int Persistence
+        public float Persistence
         {
             get
             {
@@ -134,7 +134,7 @@ namespace CommonCoreLibrary.Algorithm.Noise
             {
                 float var2 = 0;
                 int var3 = 1;
-                int var4 = 1;
+                float var4 = 1;
                 for (int l = 0; l < this._octaves; l++)
                 {
                     var2 += this.GetNoise(i * this._scale * var3) * var4;
@@ -160,7 +160,7 @@ namespace CommonCoreLibrary.Algorithm.Noise
                 {
                     float var2 = 0;
                     int var3 = 1;
-                    int var4 = 1;
+                    float var4 = 1;
                     for (int l = 0; l < this._octaves; l++)
                     {
                         var2 += this.GetNoise(i * this._scale * var3, j * this._scale * var3) * var4;
@@ -188,7 +188,7 @@ namespace CommonCoreLibrary.Algorithm.Noise
                     {
                         float var2 = 0;
                         int var3 = 1;
-                        int var4 = 1;
+                        float var4 = 1;
                         for (int l = 0; l < this._octaves; l++)
                         {
                             var2 += this.GetNoise(i * this._scale * var3, j * this._scale * var3, k * this._scale * var3) * var4;
