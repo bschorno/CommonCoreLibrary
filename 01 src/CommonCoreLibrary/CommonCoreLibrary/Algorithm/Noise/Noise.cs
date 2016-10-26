@@ -10,6 +10,7 @@ namespace CommonCoreLibrary.Algorithm.Noise
         protected int       _seed        = 1;
         protected int       _octaves     = 1;
         protected int       _persistence = 1;
+        protected float     _scale       = 1f;
         protected Random    _random;
         protected byte[]    _permutation;
 
@@ -88,6 +89,21 @@ namespace CommonCoreLibrary.Algorithm.Noise
         }
 
         /// <summary>
+        /// Scale
+        /// </summary>
+        public float Scale
+        {
+            get
+            {
+                return this._scale;
+            }
+            set
+            {
+                this._scale = value;
+            }
+        }
+
+        /// <summary>
         /// Constructor
         /// </summary>
         public Noise()
@@ -105,30 +121,108 @@ namespace CommonCoreLibrary.Algorithm.Noise
             this._permutation = new byte[512];
             new Random(this._seed).NextBytes(this._permutation);
         }
-
+        
         /// <summary>
         /// Generate 1D noise
         /// </summary>
         /// <param name="x">X-Size</param>
-        /// <returns></returns>
-        public abstract float[] Generate(float x);
+        /// <returns>Noise</returns>
+        public virtual float[] Generate(int x)
+        {
+            float[] var1 = new float[x];
+            for (int i = 0; i < x; i++)
+            {
+                float var2 = 0;
+                int var3 = 1;
+                int var4 = 1;
+                for (int l = 0; l < this._octaves; l++)
+                {
+                    var2 += this.GetNoise(i * this._scale * var3) * var4;
+                    var3 *= 2;
+                    var4 *= this._persistence;
+                }
+                var1[i] = var2;
+            }
+            return var1;
+        }
 
         /// <summary>
         /// Generate 2D noise
         /// </summary>
         /// <param name="x">X-Size</param>
         /// <param name="y">Y-Size</param>
-        /// <returns></returns>
-        public abstract float[,] Generate(float x, float y);
-
+        /// <returns>Noise</returns>
+        public virtual float[,] Generate(int x, int y)
+        {
+            float[,] var1 = new float[x, y];
+            for (int i = 0; i < x; i++)
+                for (int j = 0; j < y; j++)
+                {
+                    float var2 = 0;
+                    int var3 = 1;
+                    int var4 = 1;
+                    for (int l = 0; l < this._octaves; l++)
+                    {
+                        var2 += this.GetNoise(i * this._scale * var3, j * this._scale * var3) * var4;
+                        var3 *= 2;
+                        var4 *= this._persistence;
+                    }
+                    var1[i, j] = var2;
+                }
+            return var1;
+        }              
+                       
         /// <summary>
         /// Generate 3D noise
         /// </summary>
         /// <param name="x">X-Size</param>
         /// <param name="y">Y-Size</param>
         /// <param name="z">Z-Size</param>
+        /// <returns>Noise</returns>
+        public virtual float[,,] Generate(int x, int y, int z)
+        {
+            float[,,] var1 = new float[x, y, z];
+            for (int i = 0; i < x; i++)
+                for (int j = 0; j < y; j++)
+                    for (int k = 0; k < z; k++)
+                    {
+                        float var2 = 0;
+                        int var3 = 1;
+                        int var4 = 1;
+                        for (int l = 0; l < this._octaves; l++)
+                        {
+                            var2 += this.GetNoise(i * this._scale * var3, j * this._scale * var3, k * this._scale * var3) * var4;
+                            var3 *= 2;
+                            var4 *= this._persistence;
+                        }
+                        var1[i, j, j] = var2;
+                    }
+            return var1;
+        }
+
+        /// <summary>
+        /// Get 1D noise
+        /// </summary>
+        /// <param name="x">X-Point</param>
         /// <returns></returns>
-        public abstract float[,,] Generate(float x, float y, float z);
+        protected abstract float GetNoise(float x);
+
+        /// <summary>
+        /// Get 2D noise
+        /// </summary>
+        /// <param name="x">X-Point</param>
+        /// <param name="y">Y-Point</param>
+        /// <returns></returns>
+        protected abstract float GetNoise(float x, float y);
+
+        /// <summary>
+        /// Get 3D noise
+        /// </summary>
+        /// <param name="x">X-Point</param>
+        /// <param name="y">Y-Point</param>
+        /// <param name="z">Z-Point</param>
+        /// <returns></returns>
+        protected abstract float GetNoise(float x, float y, float z);
 
         /// <summary>
         /// Get grad
