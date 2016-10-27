@@ -7,10 +7,11 @@ namespace CommonCoreLibrary.Algorithm.Noise
 {
     public abstract class Noise
     {
-        protected int       _seed        = 1;
-        protected int       _octaves     = 1;
-        protected float     _persistence = 1;
-        protected float     _scale       = 1f;
+        protected int       _seed           = 1;
+        protected int       _octaves        = 1;
+        protected float     _persistence    = 0.5f;
+        protected float     _scale          = 1.0f;
+        protected float     _redistribution = 1.0f;
         protected Random    _random;
         protected byte[]    _permutation;
 
@@ -104,6 +105,21 @@ namespace CommonCoreLibrary.Algorithm.Noise
         }
 
         /// <summary>
+        /// Redistribution
+        /// </summary>
+        public float Redistribution
+        {
+            get
+            {
+                return this._redistribution;
+            }
+            set
+            {
+                this._redistribution = value;
+            }
+        }
+
+        /// <summary>
         /// Constructor
         /// </summary>
         public Noise()
@@ -133,15 +149,17 @@ namespace CommonCoreLibrary.Algorithm.Noise
             for (int i = 0; i < x; i++)
             {
                 float var2 = 0;
-                int var3 = 1;
-                float var4 = 1;
+                float var3 = 1; //Frequency
+                float var4 = 1; //Amplitude 
+                float var5 = 0; //Max. amplitude
                 for (int l = 0; l < this._octaves; l++)
                 {
                     var2 += this.GetNoise(i * this._scale * var3) * var4;
+                    var5 += var5;
                     var3 *= 2;
                     var4 *= this._persistence;
                 }
-                var1[i] = var2;
+                var1[i] = (float)Math.Pow(var2, this._redistribution) / var5;
             }
             return var1;
         }
@@ -158,16 +176,18 @@ namespace CommonCoreLibrary.Algorithm.Noise
             for (int i = 0; i < x; i++)
                 for (int j = 0; j < y; j++)
                 {
-                    float var2 = 0;
-                    int var3 = 1;
-                    float var4 = 1;
+                    float var2 = 0f;
+                    float var3 = 1f; //Frequency
+                    float var4 = 1f; //Amplitude 
+                    float var5 = 0f; //Max. amplitude
                     for (int l = 0; l < this._octaves; l++)
                     {
                         var2 += this.GetNoise(i * this._scale * var3, j * this._scale * var3) * var4;
-                        var3 *= 2;
+                        var5 += var4;
+                        var3 *= 2.0f;
                         var4 *= this._persistence;
                     }
-                    var1[i, j] = var2;
+                    var1[i, j] = (float)Math.Pow(var2, this._redistribution) / var5;
                 }
             return var1;
         }              
@@ -187,15 +207,17 @@ namespace CommonCoreLibrary.Algorithm.Noise
                     for (int k = 0; k < z; k++)
                     {
                         float var2 = 0;
-                        int var3 = 1;
-                        float var4 = 1;
+                        float var3 = 1; //Frequency
+                        float var4 = 1; //Amplitude 
+                        float var5 = 0; //Max. amplitude
                         for (int l = 0; l < this._octaves; l++)
                         {
                             var2 += this.GetNoise(i * this._scale * var3, j * this._scale * var3, k * this._scale * var3) * var4;
+                            var5 += var4;
                             var3 *= 2;
                             var4 *= this._persistence;
                         }
-                        var1[i, j, j] = var2;
+                        var1[i, j, j] = (float)Math.Pow(var2, this._redistribution) / var5; 
                     }
             return var1;
         }

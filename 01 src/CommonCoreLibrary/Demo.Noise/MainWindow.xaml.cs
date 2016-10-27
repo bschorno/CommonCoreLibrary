@@ -27,9 +27,10 @@ namespace Demo.Noise
             InitializeComponent();
 
             SimplexNoise noise = new SimplexNoise();
-            noise.Octaves = 3;
-            noise.Persistence = 1;
-            noise.Scale = 0.04f;
+            noise.Octaves = 6;
+            noise.Persistence = 0.5f;
+            noise.Scale = 0.01f;
+            noise.Redistribution = 1f;
 
             float[,] n = noise.Generate((int)imgMain.Width, (int)imgMain.Height);
 
@@ -40,7 +41,7 @@ namespace Demo.Noise
                 for (int j = 0; j < n.GetLength(1); j++)
                 {
                     int red = (int)((n[i, j] + 1) * 128);
-                    int green = (int)((n[i, j] + 1) * 128);
+                    int green = (int)((n[i, j] + 1 ) * 128);
                     int blue = (int)((n[i, j] + 1) * 128);
                     int alpha = 255;
                     pixels[(int)bitmap.Width * j + i] = (uint)((alpha << 24) + (blue << 16) + (green << 8) + (red << 0));
