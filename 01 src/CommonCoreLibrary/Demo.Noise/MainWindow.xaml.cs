@@ -26,8 +26,14 @@ namespace Demo.Noise
         {
             InitializeComponent();
 
-            SimplexNoise noise = new SimplexNoise();
-            noise.Octaves = 6;
+            //SimplexNoise noise = new SimplexNoise();
+            //noise.Octaves = 1;
+            //noise.Persistence = 0.5f;
+            //noise.Scale = 0.01f;
+            //noise.Redistribution = 1f;
+
+            PerlinNoise noise = new PerlinNoise();
+            noise.Octaves = 1;
             noise.Persistence = 0.5f;
             noise.Scale = 0.01f;
             noise.Redistribution = 1f;

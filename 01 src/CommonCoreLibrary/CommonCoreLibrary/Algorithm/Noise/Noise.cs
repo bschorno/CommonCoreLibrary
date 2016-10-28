@@ -254,11 +254,12 @@ namespace CommonCoreLibrary.Algorithm.Noise
         /// <returns></returns>
         protected virtual float Grad(int hash, float x)
         {
-            int h = hash & 15;
-            float grad = 1.0f + (h & 7);
-            if ((h & 8) != 0)
-                grad = -grad;
-            return grad * x;
+            //int h = hash & 15;
+            //float grad = 1.0f + (h & 7);
+            //if ((h & 8) != 0)
+            //    grad = -grad;
+            //return grad * x;
+            return (hash & 1) == 0 ? x : -x;
         }
 
         /// <summary>
@@ -270,10 +271,11 @@ namespace CommonCoreLibrary.Algorithm.Noise
         /// <returns></returns>
         protected virtual float Grad(int hash, float x, float y)
         {
-            int h = hash & 7;
-            float u = h < 4 ? x : y;
-            float v = h < 4 ? y : x;
-            return ((h & 1) != 0 ? -u : u) + ((h & 2) != 0 ? -2.0f * v : 2.0f * v);
+            //int h = hash & 7;
+            //float u = h < 4 ? x : y;
+            //float v = h < 4 ? y : x;
+            //return ((h & 1) != 0 ? -u : u) + ((h & 2) != 0 ? -2.0f * v : 2.0f * v);
+            return ((hash & 1) == 0 ? x : -x) + ((hash & 2) == 0 ? y : -y);
         }
 
         /// <summary>
@@ -286,10 +288,14 @@ namespace CommonCoreLibrary.Algorithm.Noise
         /// <returns></returns>
         protected virtual float Grad(int hash, float x, float y, float z)
         {
-            int h = hash & 15;
-            float u = h < 8 ? x : y;
-            float v = h < 4 ? y : h == 12 || h == 14 ? x : z;
-            return ((h & 1) != 0 ? -u : u) + ((h & 2) != 0 ? -v : v);
+            //int h = hash & 15;
+            //float u = h < 8 ? x : y;
+            //float v = h < 4 ? y : h == 12 || h == 14 ? x : z;
+            //return ((h & 1) != 0 ? -u : u) + ((h & 2) != 0 ? -v : v);
+            var h = hash & 15;
+            var u = h < 8 ? x : y;
+            var v = h < 4 ? y : (h == 12 || h == 14 ? x : z);
+            return ((h & 1) == 0 ? u : -u) + ((h & 2) == 0 ? v : -v);
         }
     }
 }
