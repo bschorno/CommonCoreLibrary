@@ -48,6 +48,13 @@
     <Compile Include="Algorithm\Path\AStarPath.cs" />
     <Compile Include="Algorithm\Path\AStarPriorityQueue.cs" />
     <Compile Include="Algorithm\Levenshtein.cs" />
+    <Compile Include="General\OS\OS.cs" />
+    <Compile Include="General\OS\OSMac.cs" />
+    <Compile Include="General\OS\OSMacVersion.cs" />
+    <Compile Include="General\OS\OSUnix.cs" />
+    <Compile Include="General\OS\OSUnixVersion.cs" />
+    <Compile Include="General\OS\OSWindows.cs" />
+    <Compile Include="General\OS\OSWindowsVersion.cs" />
     <Compile Include="Network\INet.cs" />
     <Compile Include="Network\Net.cs" />
     <Compile Include="Network\NetBuffer.cs" />
