@@ -6,7 +6,7 @@ using System.IO;
 
 namespace CommonCoreLibrary.Serialisation
 {
-    public class SrlSerializer
+    public class SrlSerializer : IDisposable
     {
         private Stream _stream;
 
@@ -86,6 +86,14 @@ namespace CommonCoreLibrary.Serialisation
             SrlTag var3 = SrlTag.GetInstance(var2);
             var3.SetBytes(var1);
             return var3;
+        }
+
+        /// <summary>
+        /// Dispose
+        /// </summary>
+        public void Dispose()
+        {
+            this._stream.Dispose();
         }
     }
 }
