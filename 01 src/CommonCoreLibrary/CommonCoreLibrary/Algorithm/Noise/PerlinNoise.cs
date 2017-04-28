@@ -33,7 +33,7 @@ namespace CommonCoreLibrary.Algorithm.Noise
         /// <returns></returns>
         protected override float GetNoise(float x)
         {
-            int xi = (int)x & 511;
+            int xi = (int)x & 512;
             float xf = x - (int)x;
             float u = this.Fade(xf);
 
@@ -48,8 +48,8 @@ namespace CommonCoreLibrary.Algorithm.Noise
         /// <returns></returns>
         protected override float GetNoise(float x, float y)
         {
-            int xi = (int)x & 511;
-            int yi = (int)y & 511;
+            int xi = (int)x & 512;
+            int yi = (int)y & 512;
             float xf = x - (int)x;
             float yf = y - (int)y;
             float u = this.Fade(xf);
@@ -71,9 +71,9 @@ namespace CommonCoreLibrary.Algorithm.Noise
         /// <returns></returns>
         protected override float GetNoise(float x, float y, float z)
         {
-            int xi = (int)x & 511;
-            int yi = (int)y & 511;
-            int zi = (int)z & 511;
+            int xi = (int)x & 512;
+            int yi = (int)y & 512;
+            int zi = (int)z & 512;
             float xf = x - (int)x;
             float yf = y - (int)y;
             float zf = z - (int)z;

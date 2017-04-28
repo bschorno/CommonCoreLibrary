@@ -44,7 +44,7 @@ namespace CommonCoreLibrary.Algorithm.Noise
 
             float t1 = 1.0f - x1 * x1;
             t1 *= t1;
-            float n1 = t1 * t1 * this.Grad(this._permutation[i0 & 255], x1);
+            float n1 = t1 * t1 * this.Grad(this._permutation[i1 & 255], x1);
 
             // The maximum value of this noise is 8*(3/4)^4 = 2.53125
             // A factor of 0.395 scales to fit exactly within [-1,1]
@@ -243,7 +243,9 @@ namespace CommonCoreLibrary.Algorithm.Noise
         /// <returns></returns>
         private int FFloor(float x)
         {
-            return x > 0 ? (int)x : (int)x - 1;
+            //return x > 0 ? (int)x : (int)x - 1;
+            int xi = (int)x;
+            return x < xi ? xi - 1 : xi;
         }
 
         /// <summary>

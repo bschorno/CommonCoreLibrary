@@ -148,15 +148,15 @@ namespace CommonCoreLibrary.Algorithm.Noise
             float[] var1 = new float[x];
             for (int i = 0; i < x; i++)
             {
-                float var2 = 0;
-                float var3 = 1; //Frequency
-                float var4 = 1; //Amplitude 
-                float var5 = 0; //Max. amplitude
+                float var2 = 0f;
+                float var3 = 1f; //Frequency
+                float var4 = 1f; //Amplitude 
+                float var5 = 0f; //Max. amplitude
                 for (int l = 0; l < this._octaves; l++)
                 {
                     var2 += this.GetNoise(i * this._scale * var3) * var4;
-                    var5 += var5;
-                    var3 *= 2;
+                    var5 += var4;
+                    var3 *= 2.0f;
                     var4 *= this._persistence;
                 }
                 var1[i] = (float)Math.Pow(var2, this._redistribution) / var5;
@@ -254,12 +254,12 @@ namespace CommonCoreLibrary.Algorithm.Noise
         /// <returns></returns>
         protected virtual float Grad(int hash, float x)
         {
-            //int h = hash & 15;
-            //float grad = 1.0f + (h & 7);
-            //if ((h & 8) != 0)
-            //    grad = -grad;
-            //return grad * x;
-            return (hash & 1) == 0 ? x : -x;
+            int h = hash & 15;
+            float grad = 1.0f + (h & 7);
+            if ((h & 8) != 0)
+                grad = -grad;
+            return grad * x;
+            //return (hash & 1) == 0 ? x : -x;
         }
 
         /// <summary>

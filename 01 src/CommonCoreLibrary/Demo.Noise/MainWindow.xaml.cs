@@ -32,6 +32,10 @@ namespace Demo.Noise
             //noise.Scale = 0.01f;
             //noise.Redistribution = 1f;
 
+            SimplexNoise no = new SimplexNoise();
+            no.Scale = 0.1f;
+            float[] noo = no.Generate(512);
+
             PerlinNoise noise = new PerlinNoise();
             noise.Octaves = 1;
             noise.Persistence = 0.5f;
