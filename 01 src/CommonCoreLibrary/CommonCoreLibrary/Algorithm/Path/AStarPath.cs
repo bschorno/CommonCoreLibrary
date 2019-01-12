@@ -42,6 +42,8 @@ namespace CommonCoreLibrary.Algorithm.Path
             this._openList.Clear();
             this._closeList.Clear();
 
+            this._openList.Push(startNode);
+
             sbyte[,] direction = new sbyte[4, 2] { { 0, -1 }, { 1, 0 }, { 0, 1 }, { -1, 0 } };
 
             while (this._openList.Count > 0)
