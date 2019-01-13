@@ -52,8 +52,16 @@ namespace CommonCoreLibrary.Algorithm.Path
 
                 if (currentNode.X == endX && currentNode.Y == endY)
                 {
-                    this._closeList.Add(currentNode);
-                    return this._closeList;
+                    List<AStarNode> pathList = new List<AStarNode>();
+                    while (currentNode.Parent != null)
+                    {
+                        pathList.Insert(0, currentNode);
+                        currentNode = currentNode.Parent;
+                    }
+                    pathList.Insert(0, currentNode);
+                    return pathList;
+                    //this._closeList.Add(currentNode);
+                    //return this._closeList;
                 }
 
                 this._closeList.Add(currentNode);
